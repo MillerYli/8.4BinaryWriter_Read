@@ -7,10 +7,16 @@ class BinaryExperiment
 
     static void Main()
     {
+        WriteValues();
         // Считываем
         ReadValues();
     }
 
+    static void WriteValues()
+    {
+        using (BinaryWriter writer = new BinaryWriter(File.Open(SettingsFileName, FileMode.Open)))
+            writer.Write($"Файл изменен {DateTime.Now} на компьютере c ОС {Environment.OSVersion}");
+    }
     static void ReadValues()
     {
        
